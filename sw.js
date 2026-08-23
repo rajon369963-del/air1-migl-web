@@ -1,11 +1,12 @@
 /* MIGL SuperApp Service Worker — offline-first, cache-everything.
    Strategy: cache-first with background refresh. USB/file:// safe (no-op there). */
-const CACHE = "migl-superapp-v2";
+const CACHE = "migl-superapp-v3";
 const CORE = [
   "./index.html",
   "./migl_feed.json",
   "./manifest.json",
-  "./air1_village_player.html"
+  "./air1_village_player.html",
+  "./apple-touch-icon.png"
 ];
 
 self.addEventListener("install", (e) => {
