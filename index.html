@@ -17,7 +17,8 @@
    INNOVATION v2: TikTok infinite-scroll × SM-2 spaced repetition × Duolingo streak — 
    "jo atka, wahi kal wapas aayega" = addiction loop + memory science ek saath. Offline PWA. */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{background:#000;color:#fff;font-family:-apple-system,'SF Pro',system-ui,sans-serif;overflow:hidden;height:100vh;height:100dvh}
+html{overscroll-behavior:none}
+body{background:#000;overscroll-behavior:none;color:#fff;font-family:-apple-system,'SF Pro',system-ui,sans-serif;overflow:hidden;height:100vh;height:100dvh}
 #feed{height:100dvh;overflow-y:scroll;scroll-snap-type:y mandatory}
 #feed::-webkit-scrollbar{display:none}
 .card{height:100dvh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:flex-end;padding:20px 18px 90px;position:relative;background:linear-gradient(160deg,#0d1117 0%,#161b22 55%,#1a2332 100%)}
@@ -116,6 +117,7 @@ function answer(el, j, correct){
   const opts=[...el.parentElement.querySelectorAll('.opt')];
   const ok=j===correct;
   grade(id, ok?4:0);
+  if(navigator.vibrate) navigator.vibrate(ok?[30,40,80]:120);
   if(ok){ el.classList.add('right');
     streak++; localStorage.setItem('migl_streak',streak);
     localStorage.setItem('migl_best',Math.max(streak,+localStorage.getItem('migl_best')||0));
