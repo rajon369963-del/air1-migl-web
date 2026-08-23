@@ -54,6 +54,7 @@ body{background:#000;overscroll-behavior:none;color:#fff;font-family:-apple-syst
 const FEED_URL='migl_feed.json';
 const DAY=86400000;
 // ---------- Moksha Memory: SM-2 lite (Anki wheel) + Duolingo streak ----------
+let feed=[];
 let srs=JSON.parse(localStorage.getItem('migl_srs')||'{}');   // node_id -> {ef,reps,due,int}
 let today=Math.floor(Date.now()/DAY);
 if(localStorage.getItem('migl_day')!=String(today)){
@@ -78,8 +79,9 @@ function grade(node_id,q){ // q: 0=lapse(wrong) 5=easy(right) — SM-2 lite
 }
 function isDue(n){return n.mcq && srsOf(n.node_id).due<=today;}
 // ---------- Feed build: due-first order (revision surfacing) ----------
-function buildFeed(f){
-  feed.sort((a,b)=>isDue(b)-isDue(a));          // stable-ish: due nodes upar
+function buildFeed(fs){
+  feed=fs.flat();                                // v2+v1 dono arrays ek feed me
+  feed.sort((a,b)=>isDue(b)-isDue(a));          // due nodes upar
   const el=document.getElementById('feed'), dueCount=feed.filter(isDue).length;
   document.title=`MIGL — ${dueCount?dueCount+' revision due · ':''}Padhai Reels`;
   feed.forEach((n,i)=>{
