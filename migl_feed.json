@@ -1,0 +1,482 @@
+[
+ {
+  "node_id": 95047,
+  "topic": "Linear Algebra Micro-Concept 1.1",
+  "reels": [
+   {
+    "video": "https://youtube.com/watch?v=-RPV9kDdIaQ",
+    "teacher": "Lec-21: Linear Spanning | Linear Algebra (real catalog match)",
+    "start_s": 525,
+    "end_s": 615
+   },
+   {
+    "video": "yoFBiyg_ulg",
+    "teacher": "Samuel Bosch",
+    "start_s": 0,
+    "end_s": 900
+   },
+   {
+    "video": "yhc-EPLcIaI",
+    "teacher": "Explain It All",
+    "start_s": 0,
+    "end_s": 603
+   }
+  ],
+  "socratic_ladder": [
+   "Jab tum Linear Algebra Micro-Concept 1.1 bolte ho, uska exact matlab kya hota hai?",
+   "Linear Algebra Micro-Concept 1.1 ke bina kya kaam nahi karega \u2014 ek example socho?",
+   "Agar Linear Algebra Micro-Concept 1.1 galat apply karo to result kaise galat hoga?"
+  ],
+  "doubt_type": "concept_gap",
+  "mcq": {
+   "question": "Linear algebra me eigenvalue physically kya represent karta hai?",
+   "options": [
+    "Woh direction jo transformation ke baad bhi same rehti hai, sirf scale hoti hai",
+    "Matrix ka row sum",
+    "Vector space ka volume",
+    "Determinant ka sign"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": 95043,
+  "topic": "Permutations Micro-Concept 1.1",
+  "reels": [
+   {
+    "video": "https://youtube.com/watch?v=mit_phys_circuits",
+    "teacher": "Prof. Walter Lewin Classic",
+    "start_s": 2110,
+    "end_s": 2200
+   },
+   {
+    "video": "wL5Y_eZd1Xg",
+    "teacher": "Rowa E-learning Platform",
+    "start_s": 0,
+    "end_s": 900
+   },
+   {
+    "video": "tnF9f3zCCKI",
+    "teacher": "Mario's Math Tutoring",
+    "start_s": 0,
+    "end_s": 900
+   }
+  ],
+  "socratic_ladder": [
+   "Jab tum Permutations Micro-Concept 1.1 bolte ho, uska exact matlab kya hota hai?",
+   "Permutations Micro-Concept 1.1 ke bina kya kaam nahi karega \u2014 ek example socho?",
+   "Agar Permutations Micro-Concept 1.1 galat apply karo to result kaise galat hoga?"
+  ],
+  "doubt_type": "concept_gap",
+  "mcq": {
+   "question": "Permutations me order matter karta hai \u2014 nPr formula ka core idea kya hai?",
+   "options": [
+    "n^r ways sab cases me",
+    "n objects me se r choose karke arrange: n(n-1)(n-2)...(n-r+1)",
+    "r! * n always",
+    "C(n,r) + r! subtract karke"
+   ],
+   "correct": 1
+  }
+ },
+ {
+  "node_id": 95054,
+  "topic": "Matrices Determinants Micro-Concept 1.1",
+  "reels": [
+   {
+    "video": "srxexLishgY",
+    "teacher": "MIT OpenCourseWare",
+    "start_s": 0,
+    "end_s": 900
+   },
+   {
+    "video": "r7-UNZwWUlU",
+    "teacher": "Calculus",
+    "start_s": 0,
+    "end_s": 735
+   },
+   {
+    "video": "Kqg07XtnP2E",
+    "teacher": "discovermaths",
+    "start_s": 0,
+    "end_s": 296
+   }
+  ],
+  "socratic_ladder": [
+   "Jab tum Matrices Determinants Micro-Concept 1.1 bolte ho, uska exact matlab kya hota hai?",
+   "Matrices Determinants Micro-Concept 1.1 ke bina kya kaam nahi karega \u2014 ek example socho?",
+   "Agar Matrices Determinants Micro-Concept 1.1 galat apply karo to result kaise galat hoga?"
+  ],
+  "doubt_type": "concept_gap",
+  "mcq": {
+   "question": "Determinant kab zero hota hai?",
+   "options": [
+    "Jab matrix ke rows/columns linearly dependent hon",
+    "Jab sab entries positive hon",
+    "Jab matrix square ho",
+    "Kabhi nahi"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": 95051,
+  "topic": "Symmetric Groups Micro-Concept 1.1",
+  "reels": [
+   {
+    "video": "tT2Uhfh0doI",
+    "teacher": "Michael Penn",
+    "start_s": 0,
+    "end_s": 900
+   },
+   {
+    "video": "rPh7EQPSaO4",
+    "teacher": "Socratica",
+    "start_s": 0,
+    "end_s": 257
+   },
+   {
+    "video": "p-PN3rRaPWM",
+    "teacher": "Dr.Gajendra Purohit",
+    "start_s": 0,
+    "end_s": 900
+   }
+  ],
+  "socratic_ladder": [
+   "Jab tum Symmetric Groups Micro-Concept 1.1 bolte ho, uska exact matlab kya hota hai?",
+   "Symmetric Groups Micro-Concept 1.1 ke bina kya kaam nahi karega \u2014 ek example socho?",
+   "Agar Symmetric Groups Micro-Concept 1.1 galat apply karo to result kaise galat hoga?"
+  ],
+  "doubt_type": "concept_gap",
+  "mcq": {
+   "question": "Symmetric group S3 me elements kya hote hain?",
+   "options": [
+    "6 reflections only",
+    "Sirf 3 rotations",
+    "3 letters ke saare 6 permutations \u2014 identity se lekar 3-cycles tak",
+    "Infinite elements"
+   ],
+   "correct": 2
+  }
+ },
+ {
+  "node_id": 95052,
+  "topic": "Derangements Micro-Concept 1.1",
+  "reels": [
+   {
+    "video": "y5eMio0AH-E",
+    "teacher": "Combinatorics & Optimization University of Waterloo",
+    "start_s": 0,
+    "end_s": 900
+   },
+   {
+    "video": "u44Y5FDeTRM",
+    "teacher": "Kimberly Brehm",
+    "start_s": 0,
+    "end_s": 542
+   },
+   {
+    "video": "pbXg5EI5t4c",
+    "teacher": "Numberphile",
+    "start_s": 0,
+    "end_s": 513
+   }
+  ],
+  "socratic_ladder": [
+   "Jab tum Derangements Micro-Concept 1.1 bolte ho, uska exact matlab kya hota hai?",
+   "Derangements Micro-Concept 1.1 ke bina kya kaam nahi karega \u2014 ek example socho?",
+   "Agar Derangements Micro-Concept 1.1 galat apply karo to result kaise galat hoga?"
+  ],
+  "doubt_type": "concept_gap",
+  "mcq": {
+   "question": "Derangement me kya condition hoti hai?",
+   "options": [
+    "Sab elements swap hote hain",
+    "Ek element fix rehta hai",
+    "Koi bhi element apni original position pe na aaye",
+    "Order matter nahi karta"
+   ],
+   "correct": 2
+  }
+ },
+ {
+  "node_id": 95053,
+  "topic": "Hamiltonian Mechanics Micro-Concept 1.1",
+  "reels": [
+   {
+    "video": "uncm8DChdhc",
+    "teacher": "Physics with Elliot",
+    "start_s": 0,
+    "end_s": 695
+   },
+   {
+    "video": "qgokDoYadmk",
+    "teacher": "AccPhys",
+    "start_s": 0,
+    "end_s": 280
+   },
+   {
+    "video": "m-r1ji9zRVI",
+    "teacher": "Dr. Jorge S. Diaz",
+    "start_s": 0,
+    "end_s": 900
+   }
+  ],
+  "socratic_ladder": [
+   "Jab tum Hamiltonian Mechanics Micro-Concept 1.1 bolte ho, uska exact matlab kya hota hai?",
+   "Hamiltonian Mechanics Micro-Concept 1.1 ke bina kya kaam nahi karega \u2014 ek example socho?",
+   "Agar Hamiltonian Mechanics Micro-Concept 1.1 galat apply karo to result kaise galat hoga?"
+  ],
+  "doubt_type": "concept_gap",
+  "mcq": {
+   "question": "Hamiltonian mechanics me conserved quantity kab banta hai?",
+   "options": [
+    "Jab energy zero ho",
+    "Jab system ki kisi symmetry ke corresponding Noether charge ho",
+    "Har system me sab conserved",
+    "Jab time reverse karo"
+   ],
+   "correct": 1
+  }
+ },
+ {
+  "node_id": 95055,
+  "topic": "Lagrangian Action Micro-Concept 1.1",
+  "reels": [
+   {
+    "video": "uuv-F7mlN3o",
+    "teacher": "Science Hunter",
+    "start_s": 0,
+    "end_s": 445
+   },
+   {
+    "video": "sUk9y23FPHk",
+    "teacher": "Physics with Elliot",
+    "start_s": 0,
+    "end_s": 900
+   },
+   {
+    "video": "dJsRWxilVb4",
+    "teacher": "Michel van Biezen",
+    "start_s": 0,
+    "end_s": 385
+   }
+  ],
+  "socratic_ladder": [
+   "Jab tum Lagrangian Action Micro-Concept 1.1 bolte ho, uska exact matlab kya hota hai?",
+   "Lagrangian Action Micro-Concept 1.1 ke bina kya kaam nahi karega \u2014 ek example socho?",
+   "Agar Lagrangian Action Micro-Concept 1.1 galat apply karo to result kaise galat hoga?"
+  ],
+  "doubt_type": "concept_gap",
+  "mcq": {
+   "question": "Least action principle kya bolta hai?",
+   "options": [
+    "Energy always increases",
+    "Sab paths equal hote hain",
+    "Fastest path hi sahi hai",
+    "Nature wo path choose karti hai jiska action integral minimum/stationary ho"
+   ],
+   "correct": 3
+  }
+ },
+ {
+  "node_id": 95045,
+  "topic": "Relativistic Electrodynamics Micro-Concept 1.1",
+  "reels": [
+   {
+    "video": "https://youtube.com/watch?v=bharat_edtech_const",
+    "teacher": "Dr. B. R. Ambedkar Socratic Archive",
+    "start_s": 525,
+    "end_s": 615
+   },
+   {
+    "video": "tfF_-Db8iSA",
+    "teacher": "The Organic Chemistry Tutor",
+    "start_s": 0,
+    "end_s": 900
+   },
+   {
+    "video": "nFvNTp6b7AU",
+    "teacher": "Math with Ms Sun",
+    "start_s": 0,
+    "end_s": 781
+   }
+  ],
+  "socratic_ladder": [
+   "Jab tum Relativistic Electrodynamics Micro-Concept 1.1 bolte ho, uska exact matlab kya hota hai?",
+   "Relativistic Electrodynamics Micro-Concept 1.1 ke bina kya kaam nahi karega \u2014 ek example socho?",
+   "Agar Relativistic Electrodynamics Micro-Concept 1.1 galat apply karo to result kaise galat hoga?"
+  ],
+  "doubt_type": "concept_gap",
+  "mcq": {
+   "question": "Relativistic electrodynamics me inertial reference frame kahan se measure hota hai?",
+   "options": [
+    "Absolute space ka fixed point se",
+    "Hamesha Earth ke center se",
+    "Kisi bhi non-accelerating observer ke apne rest frame se",
+    "Light source se"
+   ],
+   "correct": 2
+  }
+ },
+ {
+  "node_id": 95040,
+  "topic": "Lagrangian Mechanics Micro-Concept 1.1",
+  "reels": [
+   {
+    "video": "https://youtube.com/watch?v=iit_em_wave_04",
+    "teacher": "Prof. R. K. Shevgaonkar",
+    "start_s": 1335,
+    "end_s": 1425
+   },
+   {
+    "video": "zhk9xLjrmi4",
+    "teacher": "MIT OpenCourseWare",
+    "start_s": 0,
+    "end_s": 900
+   },
+   {
+    "video": "tpp1Ahmij_Q",
+    "teacher": "Abide By Reason",
+    "start_s": 0,
+    "end_s": 900
+   }
+  ],
+  "socratic_ladder": [
+   "Jab tum Lagrangian Mechanics Micro-Concept 1.1 bolte ho, uska exact matlab kya hota hai?",
+   "Lagrangian Mechanics Micro-Concept 1.1 ke bina kya kaam nahi karega \u2014 ek example socho?",
+   "Agar Lagrangian Mechanics Micro-Concept 1.1 galat apply karo to result kaise galat hoga?"
+  ],
+  "doubt_type": "concept_gap",
+  "mcq": {
+   "question": "Lagrange points sthir kyun rehte hain jab planet unke around orbit karta hai?",
+   "options": [
+    "Wahan gravity zero hoti hai",
+    "Gravitational pull + centrifugal effect exactly balance hote hain wahan",
+    "Planet ka magnetic field unhe rokta hai",
+    "Solar wind unhe push back karta hai"
+   ],
+   "correct": 1
+  }
+ },
+ {
+  "node_id": 95056,
+  "topic": "Magnetic Field Micro-Concept 1.1",
+  "reels": [
+   {
+    "video": "dFT7-_s0jh0",
+    "teacher": "Bozeman Science",
+    "start_s": 0,
+    "end_s": 511
+   },
+   {
+    "video": "csMqfwJRjCs",
+    "teacher": "The Organic Chemistry Tutor",
+    "start_s": 0,
+    "end_s": 900
+   },
+   {
+    "video": "XoVW7CRR5JY",
+    "teacher": "ScienceClic English",
+    "start_s": 0,
+    "end_s": 884
+   }
+  ],
+  "socratic_ladder": [
+   "Jab tum Magnetic Field Micro-Concept 1.1 bolte ho, uska exact matlab kya hota hai?",
+   "Magnetic Field Micro-Concept 1.1 ke bina kya kaam nahi karega \u2014 ek example socho?",
+   "Agar Magnetic Field Micro-Concept 1.1 galat apply karo to result kaise galat hoga?"
+  ],
+  "doubt_type": "concept_gap",
+  "mcq": {
+   "question": "Lorentz force ka direction kaise nikalte hain?",
+   "options": [
+    "Force velocity badhata hai",
+    "Force hamesha B ke parallel",
+    "Right-hand rule: v \u00d7 B direction pe charge ke sign ke hisaab se force",
+    "Direction matter nahi karta"
+   ],
+   "correct": 2
+  }
+ },
+ {
+  "node_id": 95041,
+  "topic": "Optimization Techniques Micro-Concept 1.1",
+  "reels": [
+   {
+    "video": "uh1Dk68cfWs",
+    "teacher": "Visually Explained",
+    "start_s": 0,
+    "end_s": 600
+   },
+   {
+    "video": "https://youtube.com/watch?v=mit_phys_circuits",
+    "teacher": "Prof. Walter Lewin Classic",
+    "start_s": 2110,
+    "end_s": 2200
+   },
+   {
+    "video": "ftmvsahQ6Wo",
+    "teacher": "MIT OpenCourseWare",
+    "start_s": 0,
+    "end_s": 600
+   }
+  ],
+  "socratic_ladder": [
+   "Jab tum Optimization Techniques Micro-Concept 1.1 bolte ho, uska exact matlab kya hota hai?",
+   "Optimization Techniques Micro-Concept 1.1 ke bina kya kaam nahi karega \u2014 ek example socho?",
+   "Agar Optimization Techniques Micro-Concept 1.1 galat apply karo to result kaise galat hoga?"
+  ],
+  "doubt_type": "concept_gap",
+  "mcq": {
+   "question": "Elementary functions ek hi operator se kaise banti hain?",
+   "options": [
+    "Differential algebra se \u2014 sab elementary functions ek differential operator ke solutions hain",
+    "Sab functions Taylor series se aate hain",
+    "Operator sirf linear pe kaam karta hai",
+    "Functions composition se bante hain bas"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": 95049,
+  "topic": "Number Theory Micro-Concept 1.1",
+  "reels": [
+   {
+    "video": "roIdaJ8rh9A",
+    "teacher": "Vedantu Olympiad School",
+    "start_s": 0,
+    "end_s": 600
+   },
+   {
+    "video": "mydQNLmIi3k",
+    "teacher": "Micro Concept Lab",
+    "start_s": 0,
+    "end_s": 600
+   },
+   {
+    "video": "l4C7IL-MdOk",
+    "teacher": "Ravina Tutorial",
+    "start_s": 0,
+    "end_s": 600
+   }
+  ],
+  "socratic_ladder": [
+   "Jab tum Number Theory Micro-Concept 1.1 bolte ho, uska exact matlab kya hota hai?",
+   "Number Theory Micro-Concept 1.1 ke bina kya kaam nahi karega \u2014 ek example socho?",
+   "Agar Number Theory Micro-Concept 1.1 galat apply karo to result kaise galat hoga?"
+  ],
+  "doubt_type": "concept_gap",
+  "mcq": {
+   "question": "Number theory me Z/nZ (residue classes) itna fundamental kyun hai?",
+   "options": [
+    "Ye sirf prime numbers pe kaam karta hai",
+    "Ye dikhata hai ki addition/multiplication modulo n ek ring banate hain \u2014 structure inherit hota hai",
+    "Isme division hamesha possible hai",
+    "Ye real numbers ka subset hai"
+   ],
+   "correct": 1
+  }
+ }
+]

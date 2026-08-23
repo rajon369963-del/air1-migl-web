@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>MIGL — Padhai Reels</title>
+<style>
+/* Canon: TikTok-clean. Zero kachra. Full-bleed 9:16 feed. */
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:#000;color:#fff;font-family:-apple-system,'SF Pro',system-ui,sans-serif;overflow:hidden;height:100vh;height:100dvh}
+#feed{height:100dvh;overflow-y:scroll;scroll-snap-type:y mandatory}
+#feed::-webkit-scrollbar{display:none}
+.card{height:100dvh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:flex-end;padding:20px 18px 90px;position:relative;background:linear-gradient(160deg,#0d1117 0%,#161b22 55%,#1a2332 100%)}
+.badge{position:absolute;top:54px;left:18px;font-size:12px;font-weight:600;letter-spacing:.5px;color:#58a6ff;background:rgba(88,166,255,.12);border:1px solid rgba(88,166,255,.35);padding:5px 12px;border-radius:99px;text-transform:uppercase}
+.topic{font-size:26px;font-weight:800;line-height:1.15;margin-bottom:6px;max-width:85%}
+.sub{font-size:13px;color:#8b949e;margin-bottom:18px}
+.reel{display:flex;align-items:center;gap:12px;padding:13px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);margin-bottom:10px;cursor:pointer;transition:transform .15s}
+.reel:active{transform:scale(.97)}
+.play{width:44px;height:44px;border-radius:50%;background:#238636;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.rt{flex:1;min-width:0}
+.rt .t{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rt .m{font-size:12px;color:#8b949e;margin-top:3px}
+.ask{margin-top:14px;padding:15px;border-radius:16px;background:linear-gradient(135deg,rgba(137,87,229,.16),rgba(88,166,255,.10));border:1px solid rgba(137,87,229,.35)}
+.ask h4{font-size:12px;color:#c297ff;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.q{font-size:14px;line-height:1.45;margin-bottom:6px;color:#e6edf3}
+.q::before{content:"→ ";color:#c297ff}
+.progress{position:absolute;top:24px;right:18px;font-size:11px;color:#8b949e;background:rgba(255,255,255,.06);padding:4px 10px;border-radius:99px}
+.streak{position:absolute;top:24px;left:50%;transform:translateX(-50%);font-size:13px;font-weight:700}
+.quiz{margin-top:12px;padding:15px;border-radius:16px;background:rgba(35,134,54,.10);border:1px solid rgba(35,134,54,.4)}
+.qt{font-size:14px;font-weight:600;margin-bottom:10px;line-height:1.4}
+.opt{padding:11px 13px;border-radius:11px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-size:13px;margin-bottom:7px;cursor:pointer;transition:background .2s}
+.opt:active{background:rgba(255,255,255,.12)}
+.opt.right{background:rgba(35,134,54,.45);border-color:#238636}
+.opt.wrong{background:rgba(218,54,51,.30);border-color:#da3633}
+</style>
+</head>
+<body>
+<div id="feed"></div>
+<script>
+const FEED_URL='migl_feed.json';
+// deterministic streak from localStorage (guru memory seed)
+let streak=parseInt(localStorage.getItem('migl_streak')||'7');
+fetch(FEED_URL).then(r=>r.json()).then(feed=>{
+  const el=document.getElementById('feed');
+  feed.forEach((n,i)=>{
+    const c=document.createElement('div'); c.className='card';
+    c.innerHTML=`
+      <div class="badge">${n.doubt_type.replace('_',' ')}</div>
+      <div class="streak">🔥 ${streak}</div>
+      <div class="progress">${i+1}/${feed.length}</div>
+      <div class="topic">${n.topic.replace(' Micro-Concept 1.1','').replace(/_/g,' ')}</div>
+      <div class="sub">${n.reels.length} teachers · ${n.socratic_ladder.length} sawaal is reel ke baad</div>
+      ${n.reels.map((r,j)=>`
+        <div class="reel" data-v="${r.video}" onclick="openReel(this.dataset)">
+          <div class="play">▶</div>
+          <div class="rt"><div class="t">${r.teacher}</div>
+          <div class="m">${fmt(r.start_s)}–${fmt(r.end_s)} · YouTube</div></div>
+        </div>`).join('')}
+      <div class="ask"><h4>Reel ke baad — khud se poochh</h4>
+        ${n.socratic_ladder.map(q=>`<div class="q">${q}</div>`).join('')}
+      </div>
+      ${n.mcq?`<div class="quiz" data-n="${i}">
+        <div class="qt">${n.mcq.question}</div>
+        ${n.mcq.options.map((o,j)=>`<div class="opt" onclick="answer(this,${j},${n.mcq.correct})">${o}</div>`).join('')}
+      </div>`:''}`;
+    el.appendChild(c);
+  });
+});
+function fmt(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+function answer(el, j, correct){
+  // instant feedback = addiction law (padhai ke liye)
+  if(el.parentElement.dataset.done) return;
+  el.parentElement.dataset.done=1;
+  const opts=[...el.parentElement.querySelectorAll('.opt')];
+  if(j===correct){ el.classList.add('right');
+    streak++; localStorage.setItem('migl_streak',streak);
+    document.querySelectorAll('.streak').forEach(s=>s.textContent='🔥 '+streak);
+  } else { el.classList.add('wrong'); opts[correct].classList.add('right'); }
+}
+function openReel(d){
+  // super-app law: sab kuch isi app me. YT embed in-app (no external jump)
+  window.open(d.v,'_blank','width=420,height=780');
+}
+</script>
+</body>
+</html>
