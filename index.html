@@ -5,13 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>MIGL — Padhai Reels</title>
 <style>
-/* Canon: TikTok-clean. Zero kachra. Full-bleed 9:16 feed. */
+/* Canon: TikTok-clean. Zero kachra. Full-bleed 9:16 feed.
+   INNOVATION v2: TikTok infinite-scroll × SM-2 spaced repetition × Duolingo streak — 
+   "jo atka, wahi kal wapas aayega" = addiction loop + memory science ek saath. Offline PWA. */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{background:#000;color:#fff;font-family:-apple-system,'SF Pro',system-ui,sans-serif;overflow:hidden;height:100vh;height:100dvh}
 #feed{height:100dvh;overflow-y:scroll;scroll-snap-type:y mandatory}
 #feed::-webkit-scrollbar{display:none}
 .card{height:100dvh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:flex-end;padding:20px 18px 90px;position:relative;background:linear-gradient(160deg,#0d1117 0%,#161b22 55%,#1a2332 100%)}
 .badge{position:absolute;top:54px;left:18px;font-size:12px;font-weight:600;letter-spacing:.5px;color:#58a6ff;background:rgba(88,166,255,.12);border:1px solid rgba(88,166,255,.35);padding:5px 12px;border-radius:99px;text-transform:uppercase}
+.badge.due{color:#f0883e;border-color:rgba(240,136,62,.45);background:rgba(240,136,62,.12)}
 .topic{font-size:26px;font-weight:800;line-height:1.15;margin-bottom:6px;max-width:85%}
 .sub{font-size:13px;color:#8b949e;margin-bottom:18px}
 .reel{display:flex;align-items:center;gap:12px;padding:13px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);margin-bottom:10px;cursor:pointer;transition:transform .15s}
@@ -25,32 +28,60 @@ body{background:#000;color:#fff;font-family:-apple-system,'SF Pro',system-ui,san
 .q{font-size:14px;line-height:1.45;margin-bottom:6px;color:#e6edf3}
 .q::before{content:"→ ";color:#c297ff}
 .progress{position:absolute;top:24px;right:18px;font-size:11px;color:#8b949e;background:rgba(255,255,255,.06);padding:4px 10px;border-radius:99px}
-.streak{position:absolute;top:24px;left:50%;transform:translateX(-50%);font-size:13px;font-weight:700}
+.streak{position:absolute;top:24px;left:50%;transform:translateX(-50%);font-size:13px;font-weight:700;text-align:center;line-height:1.3}
+.streak small{display:block;font-size:10px;color:#8b949e;font-weight:500}
 .quiz{margin-top:12px;padding:15px;border-radius:16px;background:rgba(35,134,54,.10);border:1px solid rgba(35,134,54,.4)}
 .qt{font-size:14px;font-weight:600;margin-bottom:10px;line-height:1.4}
 .opt{padding:11px 13px;border-radius:11px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-size:13px;margin-bottom:7px;cursor:pointer;transition:background .2s}
 .opt:active{background:rgba(255,255,255,.12)}
 .opt.right{background:rgba(35,134,54,.45);border-color:#238636}
 .opt.wrong{background:rgba(218,54,51,.30);border-color:#da3633}
+.fb{font-size:12px;margin-top:4px;color:#8b949e}
 </style>
 </head>
 <body>
 <div id="feed"></div>
 <script>
 const FEED_URL='migl_feed.json';
-// deterministic streak from localStorage (guru memory seed)
+const DAY=86400000;
+// ---------- Moksha Memory: SM-2 lite (Anki wheel) + Duolingo streak ----------
+let srs=JSON.parse(localStorage.getItem('migl_srs')||'{}');   // node_id -> {ef,reps,due,int}
+let today=Math.floor(Date.now()/DAY);
+if(localStorage.getItem('migl_day')!=String(today)){
+  const y=parseInt(localStorage.getItem('migl_day')||'0');
+  let st=parseInt(localStorage.getItem('migl_streak')||'7');
+  st=(y===today-1)?st+1:1;                       // miss = reset (honest)
+  localStorage.setItem('migl_streak',st);
+  localStorage.setItem('migl_best',Math.max(st,parseInt(localStorage.getItem('migl_best')||'0')));
+  localStorage.setItem('migl_day',today);
+}
 let streak=parseInt(localStorage.getItem('migl_streak')||'7');
+function srsOf(id){return srs[id]||(srs[id]={ef:2.5,reps:0,due:0,int:0});}
+function grade(node_id,q){ // q: 0=lapse(wrong) 5=easy(right) — SM-2 lite
+  const s=srsOf(node_id);
+  if(q<3){s.reps=0;s.int=1;}                    // atka → kal phir se (spaced repetition ka dil)
+  else{
+    s.ef=Math.max(1.3,s.ef+(0.1-(3-q)*0.08));
+    s.reps++; s.int=s.reps===1?1:s.reps===2?6:Math.round(s.int*s.ef);
+    s.due=today+s.int;
+  }
+  localStorage.setItem('migl_srs',JSON.stringify(srs));
+}
+function isDue(n){return n.mcq && srsOf(n.node_id).due<=today;}
+// ---------- Feed build: due-first order (revision surfacing) ----------
 fetch(FEED_URL).then(r=>r.json()).then(feed=>{
-  const el=document.getElementById('feed');
+  feed.sort((a,b)=>isDue(b)-isDue(a));          // stable-ish: due nodes upar
+  const el=document.getElementById('feed'), dueCount=feed.filter(isDue).length;
+  document.title=`MIGL — ${dueCount?dueCount+' revision due · ':''}Padhai Reels`;
   feed.forEach((n,i)=>{
-    const c=document.createElement('div'); c.className='card';
+    const s=srsOf(n.node_id), c=document.createElement('div'); c.className='card';
     c.innerHTML=`
-      <div class="badge">${n.doubt_type.replace('_',' ')}</div>
-      <div class="streak">🔥 ${streak}</div>
+      <div class="badge ${s.reps>0?'':''}${isDue(n)&&s.reps>0?'due':''}">${n.doubt_type.replace('_',' ')}${s.reps>0?` · rep ${s.reps} · ${s.int}d`:''}</div>
+      <div class="streak">🔥 ${streak}<small>best ${localStorage.getItem('migl_best')||streak}</small></div>
       <div class="progress">${i+1}/${feed.length}</div>
       <div class="topic">${n.topic.replace(' Micro-Concept 1.1','').replace(/_/g,' ')}</div>
-      <div class="sub">${n.reels.length} teachers · ${n.socratic_ladder.length} sawaal is reel ke baad</div>
-      ${n.reels.map((r,j)=>`
+      <div class="sub">${n.reels.length} teachers · ${n.socratic_ladder.length} sawaal is reel ke baad${s.reps>0?' · 🧠 revision':''}</div>
+      ${n.reels.map(r=>`
         <div class="reel" data-v="${r.video}" onclick="openReel(this.dataset)">
           <div class="play">▶</div>
           <div class="rt"><div class="t">${r.teacher}</div>
@@ -59,23 +90,33 @@ fetch(FEED_URL).then(r=>r.json()).then(feed=>{
       <div class="ask"><h4>Reel ke baad — khud se poochh</h4>
         ${n.socratic_ladder.map(q=>`<div class="q">${q}</div>`).join('')}
       </div>
-      ${n.mcq?`<div class="quiz" data-n="${i}">
+      ${n.mcq?`<div class="quiz" data-n="${i}" data-id="${n.node_id}">
         <div class="qt">${n.mcq.question}</div>
         ${n.mcq.options.map((o,j)=>`<div class="opt" onclick="answer(this,${j},${n.mcq.correct})">${o}</div>`).join('')}
+        <div class="fb"></div>
       </div>`:''}`;
     el.appendChild(c);
   });
 });
 function fmt(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+const NEXT_MSGS=['kal yaad rakhna — wahi asli test 🧠','ye concept ab tumhara hai 💪','interval badh gaya — memory strong'];
 function answer(el, j, correct){
-  // instant feedback = addiction law (padhai ke liye)
+  // instant feedback = addiction law; grade() = Moksha memory law
   if(el.parentElement.dataset.done) return;
   el.parentElement.dataset.done=1;
+  const id=el.parentElement.dataset.id;
   const opts=[...el.parentElement.querySelectorAll('.opt')];
-  if(j===correct){ el.classList.add('right');
+  const ok=j===correct;
+  grade(id, ok?4:0);
+  if(ok){ el.classList.add('right');
     streak++; localStorage.setItem('migl_streak',streak);
-    document.querySelectorAll('.streak').forEach(s=>s.textContent='🔥 '+streak);
-  } else { el.classList.add('wrong'); opts[correct].classList.add('right'); }
+    localStorage.setItem('migl_best',Math.max(streak,+localStorage.getItem('migl_best')||0));
+    document.querySelectorAll('.streak').forEach(s=>s.firstChild.textContent='🔥 '+streak);
+    el.parentElement.querySelector('.fb').textContent=NEXT_MSGS[Math.floor(Math.random()*NEXT_MSGS.length)];
+  } else {
+    el.classList.add('wrong'); opts[correct].classList.add('right');
+    el.parentElement.querySelector('.fb').textContent='koi baat nahi — ye reel KAL dobara aayegi 🔁';
+  }
 }
 function openReel(d){
   // super-app law: sab kuch isi app me. YT embed in-app (no external jump)

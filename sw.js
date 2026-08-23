@@ -1,6 +1,6 @@
 /* MIGL SuperApp Service Worker — offline-first, cache-everything.
    Strategy: cache-first with background refresh. USB/file:// safe (no-op there). */
-const CACHE = "migl-superapp-v1";
+const CACHE = "migl-superapp-v2";
 const CORE = [
   "./index.html",
   "./migl_feed.json",
