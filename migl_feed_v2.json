@@ -1,0 +1,650 @@
+[
+ {
+  "node_id": "migl.48c873a803fd",
+  "doubt_type": "revision",
+  "topic": "Core Applications of TLS 1.3 Handshake (TLS 1.3 Handshake)",
+  "reels": [
+   {
+    "teacher": "YouTube · TLS 1.3 Handshake",
+    "video": "https://youtube.com/watch?v=yPdJVvSyMqk",
+    "start_s": 0,
+    "end_s": 300
+   }
+  ],
+  "socratic_ladder": [
+   "Introduction — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[0:00 par] Introduction — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.c1a892b56e2e",
+  "doubt_type": "revision",
+  "topic": "Core Applications of HNSW Indexing (HNSW Indexing)",
+  "reels": [
+   {
+    "teacher": "YouTube · Vector Database Search: HNSW Algorithm Explained",
+    "video": "https://youtube.com/watch?v=cZyTZ-EMskI",
+    "start_s": 50,
+    "end_s": 350
+   }
+  ],
+  "socratic_ladder": [
+   "- What fundamental problem does HNSW help solve? — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[0:50 par] - What fundamental problem does HNSW help solve? — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.cae23a96c0c5",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Routh-Hurwitz (Routh-Hurwitz)",
+  "reels": [
+   {
+    "teacher": "YouTube · Routh-Hurwitz Criteria",
+    "video": "https://youtube.com/watch?v=cyannwIgg1E",
+    "start_s": 0,
+    "end_s": 300
+   }
+  ],
+  "socratic_ladder": [
+   "Introduction — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[0:00 par] Introduction — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.48975389dd56",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Metal Flash Attention (Metal Flash Attention)",
+  "reels": [
+   {
+    "teacher": "YouTube · Flash Attention Explained",
+    "video": "https://youtube.com/watch?v=bJFywl3KnSM",
+    "start_s": 252,
+    "end_s": 552
+   }
+  ],
+  "socratic_ladder": [
+   "Downstream Applications — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[4:12 par] Downstream Applications — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.890102f3b101",
+  "doubt_type": "revision",
+  "topic": "Core Applications of TLS 1.3 Handshake (TLS 1.3 Handshake)",
+  "reels": [
+   {
+    "teacher": "YouTube · TLS 1.3 Handshake",
+    "video": "https://youtube.com/watch?v=yPdJVvSyMqk",
+    "start_s": 0,
+    "end_s": 300
+   }
+  ],
+  "socratic_ladder": [
+   "Introduction — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[0:00 par] Introduction — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.a82c9e3aeada",
+  "doubt_type": "revision",
+  "topic": "Core Applications of HNSW Indexing (HNSW Indexing)",
+  "reels": [
+   {
+    "teacher": "YouTube · Vector Database Search: HNSW Algorithm Explained",
+    "video": "https://youtube.com/watch?v=cZyTZ-EMskI",
+    "start_s": 0,
+    "end_s": 300
+   }
+  ],
+  "socratic_ladder": [
+   "- Why HNSW is so crucial for vector databases? — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[0:00 par] - Why HNSW is so crucial for vector databases? — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.bd7c4f1926ba",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Routh-Hurwitz (Routh-Hurwitz)",
+  "reels": [
+   {
+    "teacher": "YouTube · Routh-Hurwitz Criteria",
+    "video": "https://youtube.com/watch?v=cyannwIgg1E",
+    "start_s": 0,
+    "end_s": 300
+   }
+  ],
+  "socratic_ladder": [
+   "Introduction — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[0:00 par] Introduction — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.8f04c4fe7074",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Synchronous Machines (Synchronous Machines)",
+  "reels": [
+   {
+    "teacher": "YouTube · Synchronous Machines - Introduction (Part1)",
+    "video": "https://youtube.com/watch?v=AA2iTtat1CI",
+    "start_s": 699,
+    "end_s": 999
+   }
+  ],
+  "socratic_ladder": [
+   "Thermodynamics because when given a — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[11:39 par] Thermodynamics because when given a — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.532e6070a8e6",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Gauss Law (Gauss Law)",
+  "reels": [
+   {
+    "teacher": "YouTube · 8.02x - Lect 3 - Electric Flux, Gauss' Law, Exam",
+    "video": "https://youtube.com/watch?v=Zu2gomaDqnM",
+    "start_s": 640,
+    "end_s": 940
+   }
+  ],
+  "socratic_ladder": [
+   "Gauss Law — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[10:40 par] Gauss Law — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.3dda585108c0",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Carnot Cycle (Carnot Cycle)",
+  "reels": [
+   {
+    "teacher": "YouTube · CARNOT CYCLE | Easy and Basic",
+    "video": "https://youtube.com/watch?v=ELR1Hx4qymo",
+    "start_s": 214,
+    "end_s": 252
+   }
+  ],
+  "socratic_ladder": [
+   "Thermodynamics well the second law of — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[3:34 par] Thermodynamics well the second law of — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.e6660f2ec0f8",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Relativistic Electrodynamics (Relativistic Electrodynamics)",
+  "reels": [
+   {
+    "teacher": "YouTube · Relativistic Theory of Electrodynamics: the full",
+    "video": "https://youtube.com/watch?v=4sUBTCaemfU",
+    "start_s": 257,
+    "end_s": 557
+   }
+  ],
+  "socratic_ladder": [
+   "Overview — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[4:17 par] Overview — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.c2aea16091ad",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Burden of Proof (Burden of Proof)",
+  "reels": [
+   {
+    "teacher": "YouTube · Burdens of Proof",
+    "video": "https://youtube.com/watch?v=VftKHbDzhgQ",
+    "start_s": 71,
+    "end_s": 371
+   }
+  ],
+  "socratic_ladder": [
+   "3 Different Burdens of Persuasion — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[1:11 par] 3 Different Burdens of Persuasion — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.faa9237a4294",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Bode Nyquist Stability (Bode Nyquist Stability)",
+  "reels": [
+   {
+    "teacher": "YouTube · Nyquist Stability Criterion, Part 1",
+    "video": "https://youtube.com/watch?v=sof3meN96MA",
+    "start_s": 0,
+    "end_s": 300
+   }
+  ],
+  "socratic_ladder": [
+   "<Untitled Chapter 1> — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[0:00 par] <Untitled Chapter 1> — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.f9b8f582d3f8",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Judicial Review (Judicial Review)",
+  "reels": [
+   {
+    "teacher": "YouTube · Judicial Review | Constitutional & Administrativ",
+    "video": "https://youtube.com/watch?v=pp5tC9hd4dM",
+    "start_s": 699,
+    "end_s": 999
+   }
+  ],
+  "socratic_ladder": [
+   "Thermodynamics because when given a — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[11:39 par] Thermodynamics because when given a — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.d19cf6013419",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Multi-Head Latent Attention (Multi-Head Latent Attention)",
+  "reels": [
+   {
+    "teacher": "YouTube · Flash Attention Explained",
+    "video": "https://youtube.com/watch?v=bJFywl3KnSM",
+    "start_s": 1436,
+    "end_s": 1736
+   }
+  ],
+  "socratic_ladder": [
+   "Other Applications — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[23:56 par] Other Applications — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.17e91b2b0061",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Kirchhoff Laws (Kirchhoff Laws)",
+  "reels": [
+   {
+    "teacher": "YouTube · Kirchhoff's Voltage Law - KVL Circuits, Loop Rul",
+    "video": "https://youtube.com/watch?v=6F_rmZ1nXFQ",
+    "start_s": 0,
+    "end_s": 300
+   }
+  ],
+  "socratic_ladder": [
+   "<Untitled Chapter 1> — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[0:00 par] <Untitled Chapter 1> — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.80cc1f9f50c2",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Optimization Techniques (Optimization Techniques)",
+  "reels": [
+   {
+    "teacher": "YouTube · 2. Optimization Problems",
+    "video": "https://youtube.com/watch?v=uK5yvoXnkSk",
+    "start_s": 2062,
+    "end_s": 2362
+   }
+  ],
+  "socratic_ladder": [
+   "When Does It Work? — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[34:22 par] When Does It Work? — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.340cfd78633b",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Maxwell Equations (Maxwell Equations)",
+  "reels": [
+   {
+    "teacher": "YouTube · 14. Maxwell's Equations and Electromagnetic Wave",
+    "video": "https://youtube.com/watch?v=yINtzw63Knc",
+    "start_s": 0,
+    "end_s": 300
+   }
+  ],
+  "socratic_ladder": [
+   "Chapter 1. Background — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[0:00 par] Chapter 1. Background — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.092e71eefef2",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Eigenvalues (Eigenvalues)",
+  "reels": [
+   {
+    "teacher": "YouTube · Eigenvectors and eigenvalues | Chapter 14, Essen",
+    "video": "https://youtube.com/watch?v=PFDu9oVAE-g",
+    "start_s": 31,
+    "end_s": 331
+   }
+  ],
+  "socratic_ladder": [
+   "Yale course for credit that students can — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[0:31 par] Yale course for credit that students can — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.9ded8afaeb89",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Judicial Review (Judicial Review)",
+  "reels": [
+   {
+    "teacher": "YouTube · Judicial Review | Constitutional & Administrativ",
+    "video": "https://youtube.com/watch?v=pp5tC9hd4dM",
+    "start_s": 699,
+    "end_s": 999
+   }
+  ],
+  "socratic_ladder": [
+   "Thermodynamics because when given a — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[11:39 par] Thermodynamics because when given a — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.21e5e46cd353",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Systems Analysis (Systems Analysis)",
+  "reels": [
+   {
+    "teacher": "YouTube · What is System Analysis? | Concepts, Importance,",
+    "video": "https://youtube.com/watch?v=rK0xSNQeHnU",
+    "start_s": 214,
+    "end_s": 362
+   }
+  ],
+  "socratic_ladder": [
+   "Thermodynamics well the second law of — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[3:34 par] Thermodynamics well the second law of — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.b66e40734d97",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Bode Nyquist Stability (Bode Nyquist Stability)",
+  "reels": [
+   {
+    "teacher": "YouTube · Nyquist Stability Criterion, Part 1",
+    "video": "https://youtube.com/watch?v=sof3meN96MA",
+    "start_s": 214,
+    "end_s": 514
+   }
+  ],
+  "socratic_ladder": [
+   "Thermodynamics well the second law of — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[3:34 par] Thermodynamics well the second law of — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.4f9558efce62",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Separation of Powers (Separation of Powers)",
+  "reels": [
+   {
+    "teacher": "YouTube · What is the Separation of Powers?",
+    "video": "https://youtube.com/watch?v=_882Xztbh5Q",
+    "start_s": 161,
+    "end_s": 328
+   }
+  ],
+  "socratic_ladder": [
+   "The Judiciary — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[2:41 par] The Judiciary — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ },
+ {
+  "node_id": "migl.eaa71317b2e2",
+  "doubt_type": "revision",
+  "topic": "Core Applications of Cardiovascular Hemodynamics (Cardiovascular Hemodynamics)",
+  "reels": [
+   {
+    "teacher": "YouTube · Hemodynamics (Elizabeth Herrera, MD)",
+    "video": "https://youtube.com/watch?v=Kz2ALdGj9sU",
+    "start_s": 36,
+    "end_s": 336
+   }
+  ],
+  "socratic_ladder": [
+   "The Heart as an extraordinary pump — kya tum khud ye explain kar sakte ho?",
+   "Iska real-life example kya hoga? (khud se poochho)"
+  ],
+  "mcq": {
+   "question": "[0:36 par] The Heart as an extraordinary pump — ye point kis baare me tha?",
+   "options": [
+    "Isi concept ka detail",
+    "Unrelated topic",
+    "Out of syllabus",
+    "None"
+   ],
+   "correct": 0
+  }
+ }
+]

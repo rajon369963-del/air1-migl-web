@@ -78,7 +78,7 @@ function grade(node_id,q){ // q: 0=lapse(wrong) 5=easy(right) — SM-2 lite
 }
 function isDue(n){return n.mcq && srsOf(n.node_id).due<=today;}
 // ---------- Feed build: due-first order (revision surfacing) ----------
-fetch(FEED_URL).then(r=>r.json()).then(feed=>{
+function buildFeed(f){
   feed.sort((a,b)=>isDue(b)-isDue(a));          // stable-ish: due nodes upar
   const el=document.getElementById('feed'), dueCount=feed.filter(isDue).length;
   document.title=`MIGL — ${dueCount?dueCount+' revision due · ':''}Padhai Reels`;
@@ -106,7 +106,12 @@ fetch(FEED_URL).then(r=>r.json()).then(feed=>{
       </div>`:''}`;
     el.appendChild(c);
   });
-});
+}
+// FEED CHAIN: real-teacher reels (v2) → curated (v1) — jo mile wahi chalao
+Promise.any([
+  fetch('migl_feed_v2.json').then(r=>r.json()),
+  fetch(FEED_URL).then(r=>r.json())
+]).then(buildFeed).catch(()=>fetch(FEED_URL).then(r=>r.json()).then(buildFeed));
 function fmt(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
 const NEXT_MSGS=['kal yaad rakhna — wahi asli test 🧠','ye concept ab tumhara hai 💪','interval badh gaya — memory strong'];
 function answer(el, j, correct){
