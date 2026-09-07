@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mock Repair Diagnostic</title>
+  <style>
+    :root { font-family: system-ui, sans-serif; color-scheme: light dark; }
+    body { margin: 0; padding: 24px; max-width: 720px; margin-inline: auto; line-height: 1.45; }
+    h1 { margin-bottom: 6px; }
+    .guard { padding: 12px; border: 1px solid currentColor; border-radius: 10px; margin: 16px 0; }
+    label { display: block; margin: 14px 0 6px; font-weight: 650; }
+    select, button { width: 100%; padding: 11px; font: inherit; border-radius: 8px; }
+    button { margin-top: 18px; cursor: pointer; }
+    #result { margin-top: 20px; padding: 16px; border: 1px solid currentColor; border-radius: 10px; }
+    .muted { opacity: .75; font-size: .92rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Mock Repair Diagnostic</h1>
+    <p>Classify one wrong or unattempted question and get the smallest next repair action.</p>
+    <div class="guard"><strong>FIXED_DIAGNOSTIC_RETEST_CANARY.</strong> This is not FSRS, not an efficacy claim, and it does not update mastery by itself.</div>
+
+    <form id="repair-form">
+      <label for="outcome">What happened?</label>
+      <select id="outcome" required>
+        <option value="wrong">Wrong answer</option>
+        <option value="unattempted">Unattempted</option>
+      </select>
+
+      <label for="cause">Best current cause</label>
+      <select id="cause" required>
+        <option value="concept">Concept gap</option>
+        <option value="retrieval">Could not recall</option>
+        <option value="execution">Execution/calculation/sign error</option>
+        <option value="time">Time pressure</option>
+        <option value="selection">Question-selection error</option>
+        <option value="question_key_issue">Question/key issue</option>
+        <option value="interaction_input_error">Input/interaction error</option>
+        <option value="unverified">Not sure yet</option>
+      </select>
+
+      <label for="confidence">How sure are you about that cause?</label>
+      <select id="confidence" required>
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="high">High</option>
+      </select>
+
+      <button type="submit">Get smallest repair</button>
+    </form>
+
+    <section id="result" hidden aria-live="polite">
+      <h2>Repair result</h2>
+      <p id="diagnosis"></p>
+      <p><strong>Next action:</strong> <span id="action"></span></p>
+      <p><strong>Mastery update:</strong> <span id="mastery"></span></p>
+      <p><strong>Retest label:</strong> FIXED_DIAGNOSTIC_RETEST_CANARY</p>
+      <button id="export" type="button">Export this result as JSON</button>
+    </section>
+
+    <p class="muted">No account, name, email, phone number, public learner log, or network telemetry is required. Result computation stays in this browser.</p>
+  </main>
+
+<script>
+(() => {
+  const REPAIRS = Object.freeze({
+    concept: ['Concept gap', 'Relearn the exact micro-concept, then solve one same-family example without notes.', 'ELIGIBLE_ONLY_AFTER_VALID_SKILL_EVIDENCE'],
+    retrieval: ['Retrieval gap', 'Do one closed-book recall, check the answer, then retry one same-family item.', 'ELIGIBLE_ONLY_AFTER_VALID_SKILL_EVIDENCE'],
+    execution: ['Execution error', 'Redo the same item slowly with an explicit sign/unit/checkpoint pass.', 'NO_MASTERY_UPDATE'],
+    time: ['Time-pressure error', 'Retry untimed first, then repeat once under a bounded timer.', 'NO_MASTERY_UPDATE'],
+    selection: ['Selection error', 'Write one skip/attempt rule for this archetype and test it on three mixed items.', 'NO_MASTERY_UPDATE'],
+    question_key_issue: ['Question/key issue', 'Verify statement and key independently before changing learner state.', 'NO_MASTERY_UPDATE'],
+    interaction_input_error: ['Input error', 'Correct the recorded input and rerun the diagnostic.', 'NO_MASTERY_UPDATE'],
+    unverified: ['Cause unverified', 'Compare a fresh untimed retry with the original attempt before assigning a cause.', 'NO_MASTERY_UPDATE'],
+  });
+
+  const form = document.getElementById('repair-form');
+  const result = document.getElementById('result');
+  const diagnosis = document.getElementById('diagnosis');
+  const action = document.getElementById('action');
+  const mastery = document.getElementById('mastery');
+  const exportBtn = document.getElementById('export');
+  let latest = null;
+
+  function compute(outcome, cause, confidence) {
+    const [label, nextAction, masteryUpdate] = REPAIRS[cause] || REPAIRS.unverified;
+    return Object.freeze({
+      schema: 'R105_MOCK_REPAIR_EXPORT_V1',
+      outcome,
+      cause,
+      confidence,
+      diagnosis: label,
+      next_action: nextAction,
+      mastery_update: masteryUpdate,
+      retest_type: 'FIXED_DIAGNOSTIC_RETEST_CANARY',
+      fsrs_claim: false,
+      neural_consolidation_claim: false,
+      efficacy_claim: false,
+    });
+  }
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    latest = compute(
+      document.getElementById('outcome').value,
+      document.getElementById('cause').value,
+      document.getElementById('confidence').value,
+    );
+    diagnosis.textContent = latest.diagnosis;
+    action.textContent = latest.next_action;
+    mastery.textContent = latest.mastery_update;
+    result.hidden = false;
+  });
+
+  exportBtn.addEventListener('click', () => {
+    if (!latest) return;
+    const blob = new Blob([JSON.stringify(latest, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = 'mock-repair-result.json';
+    anchor.click();
+    setTimeout(() => URL.revokeObjectURL(url), 0);
+  });
+})();
+</script>
+</body>
+</html>
