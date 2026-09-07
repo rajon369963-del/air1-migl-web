@@ -1,9 +1,11 @@
 const { test, expect, chromium } = require('@playwright/test');
 const fs = require('fs');
+const path = require('path');
 
 const PRODUCT_TASK_ID = 'R105_P0_5_JN_MOCK_REMEDIATION_MVP_V1';
 const OBJECT_ID = '1JMp7w_bMTsbdUAFbusrRAtLC9E0Z1CZ1x_rs2TZiddI';
 const EXISTING_PWA_URL = 'https://rajon369963-del.github.io/air1-migl-web/';
+const ADAPTER_FILE_URL = `file://${path.resolve('r105_mock_repair.html')}`;
 const CONTEXTS = [
   { id: 'clean_desktop_01', viewport: { width: 1365, height: 900 } },
   { id: 'clean_mobile_02', viewport: { width: 390, height: 844 } },
@@ -132,6 +134,61 @@ async function probeExistingPwa(contextId, viewport) {
   return receipt;
 }
 
+async function exerciseAdapter(contextId, viewport) {
+  const browser = await chromium.launch({ headless: true });
+  const context = await browser.newContext({ viewport, storageState: { cookies: [], origins: [] } });
+  const page = await context.newPage();
+  const networkRequests = [];
+  page.on('request', request => {
+    if (/^https?:/i.test(request.url())) networkRequests.push(request.url());
+  });
+
+  let error = null;
+  try {
+    await page.goto(ADAPTER_FILE_URL, { waitUntil: 'domcontentloaded', timeout: 15000 });
+    await page.selectOption('#outcome', 'wrong');
+    await page.selectOption('#cause', 'time');
+    await page.selectOption('#confidence', 'high');
+    await page.click('button[type="submit"]');
+  } catch (e) {
+    error = String(e.message || e);
+  }
+
+  const diagnosis = await page.locator('#diagnosis').innerText().catch(() => '');
+  const action = await page.locator('#action').innerText().catch(() => '');
+  const mastery = await page.locator('#mastery').innerText().catch(() => '');
+  const bodyText = await page.locator('body').innerText().catch(() => '');
+  const resultVisible = await page.locator('#result').isVisible().catch(() => false);
+  const controls = {
+    buttons: await page.locator('button').count().catch(() => 0),
+    selects: await page.locator('select').count().catch(() => 0),
+    forms: await page.locator('form').count().catch(() => 0),
+  };
+  const screenshotPath = `artifacts/r105_adapter_${contextId}.png`;
+  ensureArtifacts();
+  await page.screenshot({ path: screenshotPath, fullPage: true }).catch(() => {});
+
+  const receipt = {
+    context_id: contextId,
+    viewport,
+    error,
+    controls,
+    result_visible: resultVisible,
+    diagnosis,
+    action,
+    mastery_update: mastery,
+    fixed_diagnostic_guard_present: /FIXED_DIAGNOSTIC_RETEST_CANARY/.test(bodyText),
+    not_fsrs_guard_present: /not FSRS/i.test(bodyText),
+    no_efficacy_guard_present: /not an efficacy claim/i.test(bodyText),
+    network_request_count: networkRequests.length,
+    network_requests: networkRequests,
+    screenshot_path: screenshotPath,
+  };
+  await context.close();
+  await browser.close();
+  return receipt;
+}
+
 test('R105 anonymous read-surface court after copy failure', async () => {
   const results = [];
   for (const candidate of CANDIDATES) {
@@ -183,8 +240,43 @@ test('R105 existing deployed PWA identical-fixture baseline court', async () => 
   };
   ensureArtifacts();
   fs.writeFileSync('artifacts/PWA_BASELINE_RECEIPT.json', JSON.stringify(receipt, null, 2));
-
-  // This is a court, not an implementation gate. A baseline miss is a valid measured outcome,
-  // so fail only if the oracle itself failed to produce both context receipts.
   expect(results).toHaveLength(CONTEXTS.length);
+});
+
+test('R105 sanitized single-file adapter deterministic privacy canary', async () => {
+  const results = [];
+  for (const ctx of CONTEXTS) results.push(await exerciseAdapter(ctx.id, ctx.viewport));
+  const deterministic = results.length === CONTEXTS.length && results.every(r =>
+    r.error === null &&
+    r.result_visible &&
+    r.diagnosis === 'Time-pressure error' &&
+    r.action === 'Retry untimed first, then repeat once under a bounded timer.' &&
+    r.mastery_update === 'NO_MASTERY_UPDATE'
+  );
+  const privacy = results.every(r => r.network_request_count === 0);
+  const semanticTruth = results.every(r => r.fixed_diagnostic_guard_present && r.not_fsrs_guard_present && r.no_efficacy_guard_present);
+  const receipt = {
+    product_task_id: PRODUCT_TASK_ID,
+    handoff_task_id: 'R105-L4-EXISTING-SURFACE-IDENTICAL-FIXTURE-CANARY-01',
+    effect_id: 'EFFECT-L4-R105-SANITIZED-CLIENT-ADAPTER-CANARY-V1',
+    candidate: 'single_file_client_only_adapter',
+    source_file: 'r105_mock_repair.html',
+    contexts: results,
+    deterministic_same_input_result: deterministic,
+    zero_network_telemetry: privacy,
+    semantic_truth_guards_pass: semanticTruth,
+    public_sheet_learner_writes: 0,
+    production_backend_delta: 0,
+    production_db_delta: 0,
+    production_service_delta: 0,
+    real_user_event: false,
+    deployment_promoted: false,
+    g3_promoted: false,
+    verdict: deterministic && privacy && semanticTruth ? 'RUNNABLE_ADAPTER_CANARY_PASS_BOUNDED' : 'RUNNABLE_ADAPTER_CANARY_FAIL',
+  };
+  ensureArtifacts();
+  fs.writeFileSync('artifacts/ADAPTER_CANARY_RECEIPT.json', JSON.stringify(receipt, null, 2));
+  expect(deterministic, JSON.stringify(receipt, null, 2)).toBe(true);
+  expect(privacy, JSON.stringify(receipt, null, 2)).toBe(true);
+  expect(semanticTruth, JSON.stringify(receipt, null, 2)).toBe(true);
 });
