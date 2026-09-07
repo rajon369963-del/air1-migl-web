@@ -1,0 +1,10 @@
+{
+  "name": "air1-migl-web",
+  "private": true,
+  "scripts": {
+    "test:r105-public-journey": "playwright test tests/r105-public-journey.spec.js --reporter=line"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.0"
+  }
+}

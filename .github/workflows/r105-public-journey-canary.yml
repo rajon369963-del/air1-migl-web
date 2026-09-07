@@ -1,0 +1,39 @@
+name: R105 Public Journey Canary
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tests/r105-public-journey.spec.js'
+      - 'package.json'
+      - '.github/workflows/r105-public-journey-canary.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  anonymous-browser-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: package.json
+      - name: Install test wheel only
+        run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run two-context anonymous journey oracle
+        run: npm run test:r105-public-journey
+      - name: Upload journey receipt even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: r105-journey-receipt
+          path: artifacts/
+          if-no-files-found: warn
+          retention-days: 7
